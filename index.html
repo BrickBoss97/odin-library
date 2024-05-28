@@ -17,21 +17,21 @@
         <div class="buttons">
             <button type="button" class="btn" onclick="openForm()">Add Book</button>
         </div>
-        <dialog class="form-popup" id="myForm">
-            <form action="" class="form-container">
+        <dialog class="form-popup">
+            <form action="" class="form-container"  id="myForm">
                 <h1>Add New Book</h1>
             
                 <label for="title"><b>Title</b></label>
-                <input type="text" placeholder="Enter Title" name="title" required>
+                <input class="titleInput" type="text" placeholder="Enter Title" name="title" required>
             
                 <label for="author"><b>Author</b></label>
-                <input type="text" placeholder="Enter Author" name="author" required>
+                <input class="authorInput" type="text" placeholder="Enter Author" name="author" required>
 
                 <label for="pages"><b>Number of Pages</b></label>
-                <input type="tel" placeholder="Enter # of Pages" name="pages" required>
+                <input class="pagesInput" type="tel" placeholder="Enter # of Pages" name="pages" required>
 
                 <label for="read"><b>Have you read this?</b></label>
-                <select name="read" id="read" required>
+                <select class="readInput" name="read" id="read" required>
                     <option disabled selected value=""> -- select an option -- </option>
                     <option value="true">Yes</option>
                     <option value="false">No</option>
@@ -43,12 +43,30 @@
         </dialog>
         <div class="books">
             <div class="book">
-                <div class="title">Moby Dick</div>
+                <h2 class="title">Moby Dick</h2>
                 <div class="author">By Herman Mellvile</div>
                 <div class="pages">Pages: 635</div>
                 <div class="book-buttons">
-                    <button type="button">Unread</button>
-                    <button type="button">X</button>
+                    <button type="button" class="btn read-status">Unread</button>
+                    <button type="button" class="btn remove">X</button>
+                </div>
+            </div>
+            <div class="book">
+                <h2 class="title">Moby Dick</h2>
+                <div class="author">By Herman Mellvile</div>
+                <div class="pages">Pages: 635</div>
+                <div class="book-buttons">
+                    <button type="button" class="btn read-status">Unread</button>
+                    <button type="button" class="btn remove">X</button>
+                </div>
+            </div>
+            <div class="book">
+                <h2 class="title">Moby Dick</h2>
+                <div class="author">By Herman Mellvile</div>
+                <div class="pages">Pages: 635</div>
+                <div class="book-buttons">
+                    <button type="button" class="btn read-status">Unread</button>
+                    <button type="button" class="btn remove">X</button>
                 </div>
             </div>
         </div>

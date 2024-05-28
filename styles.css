@@ -4,6 +4,8 @@
     --font-medium: 18px;
     --font-large: 22px;
     --white: rgb(255, 255, 255);
+    --dark-gray: rgb(42, 42, 42);
+    --gray: rgb(61, 61, 61);
     --off-white: rgb(241, 241, 241);
     --blue: rgb(106, 118, 218);
     --red: rgb(188, 101, 96);
@@ -41,16 +43,16 @@ body {
 }
 
 button:hover {
-    background-color: #2a2a2a;
+    background-color: var(--dark-gray);
 }
 
 button:active {
-    background-color: #2a2a2a;
+    background-color: var(--dark-gray);
     transform: translateY(1px);
 }
 
 button {
-    background-color: #3d3d3d; 
+    background-color: var(--gray); 
     box-shadow:
         1.4px 2.8px 2.2px rgba(0, 0, 0, 0.02),
         3.3px 6.7px 5.3px rgba(0, 0, 0, 0.028),
@@ -73,7 +75,7 @@ button {
 
 .form-popup {
     background-color: var(--off-white);
-    border: 1px solid #2a2a2a;
+    border: 1px solid var(--gray);
     padding: 16px;
     border-radius: 8px;
     position: absolute;
@@ -126,18 +128,49 @@ input:focus {
     height: 2rem;
 }
 
-.form-container .cancel {
+.cancel,
+.remove {
     background-color: rgb(177, 0, 0);
+}
+
+.cancel:hover,
+.remove:hover {
+    background-color: rgb(132, 0, 0);
 }
 
 .books {
     margin-top: 32px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 32px;
+    width: 80%;
 }
 
 .book {
     background-color: var(--off-white);
     padding: 16px;
     border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.book-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 48px;
+}
+
+.book-buttons button {
+    padding: 4px 10px;
+}
+
+.read-status {
+    background-color: var(--gray);
+}
+
+.read-status:hover {
+    background-color: var(--dark-gray);
 }
 
 .footer {
