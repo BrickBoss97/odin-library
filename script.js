@@ -53,6 +53,23 @@ function displayNewBook() {
     bookPages.classList.add("pages");
     bookPages.textContent = `Pages: ${newBook.pages}`;
     divBook.append(bookPages)
+
+    const bookButtons = document.createElement("div");
+    bookButtons.classList.add("book-buttons");
+    divBook.append(bookButtons);
+
+    const readButton = document.createElement("button");
+    readButton.classList.add("btn", "read-status");
+    readButton.textContent = newBook.read;
+
+    const removeButton = document.createElement("button");
+    removeButton.classList.add("btn", "remove");
+    removeButton.textContent = "X";
+    bookButtons.append(readButton, removeButton);
+}
+
+function removeBook() {
+
 }
 
 form.addEventListener("submit", (event) => {
