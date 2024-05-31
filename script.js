@@ -35,7 +35,9 @@ function addBookToLibrary() {
 function displayNewBook() {
     let newBook = myLibrary.at(-1);
 
+    //Construct New Book DOM Element
     const divBook = document.createElement("div");
+    divBook.setAttribute("data-number", String(myLibrary.length - 1));
     divBook.classList.add("book");
     bookContainer.append(divBook);
 
@@ -60,16 +62,48 @@ function displayNewBook() {
 
     const readButton = document.createElement("button");
     readButton.classList.add("btn", "read-status");
-    readButton.textContent = newBook.read;
+    if (newBook.read == "true") {
+        readButton.classList.add("read");
+        readButton.textContent = "Read";
+    }
+    else {
+        readButton.classList.add("unread");
+        readButton.textContent = "Unread";
+    }
 
     const removeButton = document.createElement("button");
     removeButton.classList.add("btn", "remove");
     removeButton.textContent = "X";
     bookButtons.append(readButton, removeButton);
-}
 
-function removeBook() {
+    //Change read status
+    readButton.addEventListener("click", () => {
+        if (readButton.classList.contains("read")) {
+            readButton.classList.replace("read", "unread");
+            readButton.textContent = "Unread";
+        }
+        else {
+            readButton.classList.replace("unread", "read");
+            readButton.textContent = "Read";
+        }
+    });
 
+    //Remove book button function
+    removeButton.addEventListener("click", () => {
+        const bookId = divBook.getAttribute("data-number");
+        const allBooks = document.querySelectorAll(".book");
+
+        //Reduce remaining Book Id's
+        allBooks.forEach((book) => {
+            if (bookId < book.dataset.number) {
+                book.dataset.number = book.dataset.number - 1;
+            }
+        });
+
+        //Remove book from array and display
+        myLibrary.splice(bookId, 1)
+        divBook.remove();
+    });
 }
 
 form.addEventListener("submit", (event) => {
@@ -77,3 +111,13 @@ form.addEventListener("submit", (event) => {
     addBookToLibrary();
     dialog.close();
 });
+
+function templateBooks() {
+    myLibrary.push(new Book("Moby Dick", "Herman Mellvile", "635", "true"));
+    displayNewBook()
+
+    myLibrary.push(new Book("Dune", "Frank Herbert", "896", "false"))
+    displayNewBook()
+}
+
+templateBooks()

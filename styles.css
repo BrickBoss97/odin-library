@@ -10,6 +10,7 @@
     --blue: rgb(106, 118, 218);
     --red: rgb(188, 101, 96);
     --green: rgb(81, 97, 64); 
+    --dark-green: rgb(64, 76, 50); 
 }
 
 * {
@@ -165,11 +166,19 @@ input:focus {
     padding: 4px 10px;
 }
 
-.read-status {
+.read {
+    background-color: var(--green);
+}
+
+.read:hover {
+    background-color: var(--dark-green);
+}
+
+.unread {
     background-color: var(--gray);
 }
 
-.read-status:hover {
+.unread:hover {
     background-color: var(--dark-gray);
 }
 
